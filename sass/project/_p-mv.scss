@@ -1,0 +1,150 @@
+@use "../global" as *;
+@use "sass:map";
+
+.p-mv {
+  padding-top: 60px;
+  background: url(/img/mv-bgimg@2x.png) no-repeat bottom center/cover;
+  @include mq("xl") {
+    padding-top: 104px;
+  }
+  @include mq("sm") {
+    margin-bottom: -4px;
+  }
+}
+
+.p-mv__inner {
+  height: 44.444444vw;
+  max-height: 640px;
+  max-width: 1440px;
+  margin-inline: auto;
+  position: relative;
+  overflow-x: hidden;
+  @include mq("sm") {
+    height: 514px;
+    max-height: none;
+  }
+}
+
+.p-mv__copy-container {
+  margin-left: 10.06944vw;
+  padding-top: 38px;
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  @include mq("sm") {
+    justify-content: center;
+    padding-top: 30.5px;
+    padding-right: 37.5px;
+  }
+}
+
+.p-mv__copy-img {
+  img {
+    height: 21.041666vw;
+    max-height: 303px;
+    width: auto;
+  }
+}
+.p-mv__copy {
+  margin-top: -14px;
+  h2 {
+    font-family: $ff-accent-ja_01;
+    font-size: clamp(1.875rem, -0.554rem + 5.06vw, 4rem);
+    line-height: 1.5;
+    @include mq("sm") {
+      font-size: 30px;
+    }
+    span {
+      font-size: clamp(1.563rem, -0.08rem + 3.42vw, 3rem);
+      line-height: 1.5;
+      @include mq("sm") {
+        font-size: 25px;
+      }
+    }
+  }
+}
+.p-mv__right-img {
+  position: absolute;
+  right: 0;
+  bottom: 1px;
+  @include mq("sm") {
+    left: calc(50% - 150px);
+    right: auto;
+    bottom: 4px;
+  }
+  img {
+    width: 48.055555vw;
+    max-width: 691px;
+    @include mq("sm") {
+      // width: 105vw;
+      width: 409px;
+    }
+  }
+}
+
+.p-mv__left-images {
+  position: absolute;
+  bottom: 30px;
+  left: 46px;
+  display: flex;
+  justify-content: start;
+  gap: 0;
+  @include mq("sm") {
+    flex-direction: column;
+    bottom: 9px;
+    left: calc(50% - 179px);
+    gap: 9px;
+  }
+}
+
+.p-mv__left-image {
+  img {
+    width: 19vw;
+    max-width: 274px;
+    @include mq("sm") {
+      // width: 44.87179vw;
+      width: 173px;
+    }
+  }
+}
+
+.p-mv__subcopy {
+  position: absolute;
+  right: 4.375vw;
+  top: 31px;
+  @include mq("lg") {
+    top: clamp(0.438rem, -2.972rem + 5.45vw, 1.938rem);
+  }
+  @include mq("md") {
+    right: 20px;
+  }
+
+  @include mq("sm") {
+    right: auto;
+    left: calc(50% + 140px);
+    top: 20.5px;
+  }
+  p {
+    writing-mode: vertical-rl;
+    color: $color-secondary;
+    font-family: $ff-accent-ja_02;
+    line-height: 37px;
+    letter-spacing: 0.3rem;
+    font-size: clamp(1.5rem, 0.929rem + 1.19vw, 2rem);
+    @include mq("xl") {
+      &::after {
+        content: "";
+        height: 51px;
+        width: 16px;
+        background: url(/img/mv-bubble-image@2x.png) no-repeat center center/cover;
+        position: absolute;
+        top: 34px;
+        right: -29px;
+      }
+    }
+    @include mq("sm") {
+      letter-spacing: normal;
+      font-size: 24px;
+    }
+  }
+}

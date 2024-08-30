@@ -1,0 +1,239 @@
+@use "../global" as *;
+@use "sass:map";
+
+.p-apply {
+  padding-top: 76px;
+  padding-bottom: 78px;
+  @include mq("sm") {
+    padding-top: 62px;
+    padding-bottom: 40px;
+  }
+}
+
+.p-apply__inner {
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction:column;
+}
+
+.p-apply__title {
+    font-family: $ff-accent-ja_01;
+    font-size: 40px;
+    letter-spacing: 1.2px;
+    display: inline-block;
+    position: relative;
+    @include mq("sm") {
+      font-size: 24px;
+      letter-spacing: 0;
+    }
+
+    &::before {
+      content: "";
+      width: 33px;
+      height: 53px;
+      position: absolute;
+      background: url(/img/icon-title-deco_left@2x.png) no-repeat center center / cover;
+      left: -49px;
+      top: 4px;
+      @include mq("sm") {
+        left: -33px;
+        top: -1px;
+        width: 24.922px;
+        height: 40px;
+      }
+    }
+    &::after {
+      content: "";
+      width: 33px;
+      height: 53px;
+      position: absolute;
+      background: url(/img/icon-title-deco_right@2x.png) no-repeat center center / cover;
+      right: -49px;
+      top: 4px;
+      @include mq("sm") {
+        width: 24.906px;
+        height: 40px;
+        right: -33px;
+        top: -1px;
+      }
+    
+  }
+}
+
+.p-apply__main {
+  margin-top: 114px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include mq("sm") {
+    margin-top: 47px;
+    width: 100%;
+  }
+}
+
+.p-apply__cards {
+  display: flex;
+  column-gap: 31px;
+  margin-left: -3px;
+  max-width: 764px;
+  width: calc(100% - 15px * 2);
+  @include mq("sm") {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 41px;
+    margin-left: 0;
+    width: 359px;
+  }
+}
+
+.p-apply__card {
+  width: calc((100% - 31px * 2) / 3);
+
+  @include mq("sm") {
+    width: 100%;
+  }
+}
+
+.p-apply__items {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "areaB"
+    "areaA"
+    "areaC"
+    "areaD";
+  position: relative;
+
+  @include mq("sm") {
+    grid-template-columns: 118px 1fr;
+    grid-template-rows: 0 1fr 54px;
+    grid-template-areas:
+      "areaA areaB"
+      "areaA areaC"
+      "areaA areaD";
+    column-gap: 24px;
+    padding-right: 8px;
+  }
+}
+
+.p-apply__card:nth-of-type(2) .p-apply__items {
+  padding-right: 0;
+}
+
+.p-apply__label {
+  position: absolute;
+  grid-area: areaB;
+  transform: rotate(-5deg);
+  @include mq("sm") {
+    transform: rotate(0deg);
+  }
+  p {
+    text-align: center;
+    font-family: $ff-accent-ja_02;
+    font-size: 23px;
+    line-height: normal;
+    letter-spacing: -2.07px;
+    @include mq("sm") {
+      font-size: 15px;
+      line-height: normal;
+      letter-spacing: -1.35px;
+    }
+  }
+}
+.p-apply__card:nth-of-type(1) .p-apply__label {
+  top: -47px;
+  left: calc(50% - 107px);
+  @include mq("sm") {
+    top: 5px;
+    left: 0;
+  }
+}
+.p-apply__card:nth-of-type(2) .p-apply__label {
+  top: -41px;
+  left: calc(50% - 33px);
+  @include mq("sm") {
+    top: 4.5px;
+    left: 0;
+  }
+}
+.p-apply__card:nth-of-type(3) .p-apply__label {
+  top: -43px;
+  left: 52px;
+  @include mq("sm") {
+    top: 17px;
+    left: 0;
+  }
+}
+
+.p-apply__img {
+  grid-area: areaA;
+  width: 174px;
+  margin-inline: auto;
+  @include mq("sm") {
+    width: 118px;
+    width: 138px;
+    padding-right: 20px;
+  }
+}
+
+.p-apply__heading {
+  margin-top: 23px;
+  grid-area: areaC;
+  @include mq("sm") {
+    margin-left: 0px;
+    margin-top: 22px;
+  }
+  p {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 170%; /* 40.8px */
+    letter-spacing: 0.72px;
+    @include mq("sm") {
+      font-size: 20px;
+      line-height: normal;
+      text-align: left;
+      margin-top: 0;
+      letter-spacing: 0;
+    }
+  }
+}
+
+.p-apply__card:nth-of-type(3).p-apply__heading {
+  @include mq("sm") {
+    height: 100%;
+    position: relative;
+  }
+}
+.p-apply__card:nth-of-type(3) .p-apply__heading p {
+  @include mq("sm") {
+    position: absolute;
+    bottom: 48px;
+  }
+}
+
+.p-apply__text {
+  margin-top: 8px;
+  grid-area: areaD;
+  @include mq("sm") {
+    margin-top: 0;
+  }
+
+  p {
+    text-align: center;
+    font-size: 16px;
+    line-height: 170%; /* 27.2px */
+    letter-spacing: 0.48px;
+    @include mq("sm") {
+      font-size: 16px;
+      line-height: 150%; /* 24px */
+      letter-spacing: 0;
+      text-align: left;
+    }
+  }
+}

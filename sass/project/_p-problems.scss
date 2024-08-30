@@ -1,0 +1,244 @@
+@use "../global" as *;
+@use "sass:map";
+
+.p-problems {
+  background: url(/img/problems-bg@2x.png) no-repeat center center/cover;
+  padding-top: 80px;
+  @include mq("sm") {
+    padding-top: 39px;
+  }
+}
+
+.p-problems__inner {
+}
+
+.p-problems__title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  h2 {
+    font-size: 40px;
+    line-height: normal;
+    letter-spacing: 1.2px;
+    font-family: $ff-accent-ja_01;
+    @include mq("sm") {
+      font-size: 24px;
+      letter-spacing: 0;
+      padding-right: 7px;
+    }
+  }
+}
+
+.p-problems__main {
+  margin-top: 25px;
+  display: flex;
+  gap: 64.09px;
+  justify-content: center;
+  @include mq("lg") {
+    gap: 30px;
+  }
+
+  @include mq("md") {
+    gap: 30px;
+  }
+  @include mq("sm") {
+    margin-top: 21px;
+    gap: 0;
+    position: relative;
+    display: block;
+    height: 240.654px;
+  }
+}
+
+.p-problems__img {
+  max-width: 367.908px;
+  width: 25.549166vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include mq("xl") {
+    max-height: 368px;
+    height: 25.555554vw;
+  }
+  @include mq("lg") {
+    width: 35vw;
+  }
+  @include mq("md") {
+    width: 35vw;
+  }
+  @include mq("sm") {
+    width: 162.94px;
+    height: 240.654px;
+    left: calc(50% - 195px);
+    position: absolute;
+  }
+  p {
+    width: 100%;
+    height: 100%;
+    background: url(/img/problems-img@2x.png) no-repeat center center/cover;
+    position: relative;
+    @include mq("sm") {
+      background: url(/img/problems-img__sp@2x.png) no-repeat center center/cover;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: linear-gradient(-90deg, #ffffff 0, transparent 40%);
+    }
+  }
+}
+
+.p-problems__textbox {
+  display: flex;
+  gap: 29px;
+  flex-direction: column;
+  justify-content: center;
+  @include mq("xl") {
+    margin-top: -10px;
+  }
+  @include mq("sm") {
+    gap: 19px;
+    margin-right: 15px;
+    position: absolute;
+    left: calc(50% - 69px);
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.p-problems__text {
+  max-width: 560px;
+  width: 38.888888vw;
+  padding: 24px;
+  padding-top: 24px;
+  padding-bottom: 23px;
+  padding-right: 24px;
+  padding-left: 79px;
+  border-radius: 16px;
+  border: 1px solid var(--gray, #6c6e6f);
+  background: var(--White, #fff);
+
+  @include mq("lg") {
+    padding-left: 5.486111vw;
+
+    width: 52vw;
+  }
+  @include mq("md") {
+    padding-left: 5.486111vw;
+
+    width: 52vw;
+  }
+
+  @include mq("sm") {
+    width: 248.999px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    padding-left: 8px;
+    padding-right: 7px;
+    border-radius: 8px;
+    border: 0.395px solid var(--gray, #6c6e6f);
+  }
+  p {
+    font-family: "Noto Sans JP";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%; /* 31.2px */
+    letter-spacing: 0.72px;
+    position: relative;
+    padding-left: 40px;
+    @include mq("md") {
+      font-size: 17px;
+    }
+    @include mq("sm") {
+      font-feature-settings: "vhal" on;
+      font-size: 16px;
+      line-height: 130%; /* 20.8px */
+      letter-spacing: -0.48px;
+      padding-left: 15px;
+    }
+    &::before {
+      content: "";
+      width: 24px;
+      height: 24px;
+      background: url(/img/icon_round-check-box.svg) no-repeat center center/cover;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      @include mq("sm") {
+        width: 10px;
+        height: 10px;
+        left: -1px;
+        top: 5px;
+        transform: none;
+      }
+    }
+  }
+}
+
+.p-problems__text:nth-child(3) p::before {
+  @include mq("sm") {
+    top: 4px;
+  }
+}
+
+.p-problems__message {
+  background-color: rgba(($color-accent_02-rgb), 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 25px;
+  padding-bottom: 33px;
+  position: relative;
+  @include mq("sm") {
+    background-color: $color-accent_02;
+    padding-top: 17px;
+    padding-bottom: 17px;
+  }
+  &::after {
+    content: "";
+    width: 90px;
+    height: 50px;
+    position: absolute;
+    background: url(/img/problems-message-triangle.svg) no-repeat center center/cover;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -49px;
+    @include mq("sm") {
+      width: 45px;
+      height: 25px;
+      background: url(/img/problems-message-triangle--sp.svg) no-repeat center center / cover;
+      bottom: -24px;
+    }
+  }
+  p {
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 170%; /* 54.4px */
+    letter-spacing: 0.96px;
+    @include mq("sm") {
+      text-align: center;
+      font-size: 17px;
+      line-height: 130%; /* 22.1px */
+      letter-spacing: -0.51px;
+    }
+  }
+  span {
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 170%; /* 54.4px */
+    letter-spacing: 0.96px;
+    @include mq("sm") {
+      text-align: center;
+      font-size: 17px;
+      line-height: 130%; /* 22.1px */
+      letter-spacing: -9.35px;
+    }
+  }
+}

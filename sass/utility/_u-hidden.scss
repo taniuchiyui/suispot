@@ -1,0 +1,38 @@
+@use "../global" as *;
+@use "sass:map";
+
+.u-hidden-xl {
+  @include mq("xl") {
+    display: none;
+  }
+}
+.u-hidden-lg {
+  @include mq("lg") {
+    display: none;
+  }
+}
+.u-hidden-md {
+  @include mq("md") {
+    display: none;
+  }
+}
+.u-hidden-sm {
+  @include mq("sm") {
+    display: none;
+  }
+}
+
+.u-hidden-pc {
+  @include mq("xl") {
+    display: none;
+  }
+  @include mq("lg") {
+    display: none;
+  }
+  @include mq("md") {
+    display: none;
+  }
+}
+
+// <br class="u-hidden-pc">
+// <br class="u-hidden-sm">

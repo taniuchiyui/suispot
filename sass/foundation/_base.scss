@@ -1,0 +1,19 @@
+@use "../global" as *;
+
+body {
+  color: $color-primary;
+  font-family: $ff-base-ja;
+  font-size: $fz-base;
+  font-weight: $fw-base;
+  line-height: $lh-base;
+  background-color: $bg-primary;
+  overflow-y:scroll;
+}
+
+a[href^="tel:"] {
+  pointer-events: none;
+}
+
+*{
+  outline:1px red solid ;
+}

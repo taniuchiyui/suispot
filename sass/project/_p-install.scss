@@ -1,0 +1,286 @@
+@use "../global" as *;
+@use "sass:map";
+
+.p-install {
+}
+
+.p-install__deco--top {
+  height: 2.291666vw;
+  width: 100%;
+  background: url(/img/install-union_top@2x.png) no-repeat center center/cover;
+  @include mq("sm") {
+    height: 16px;
+    background: url(/img/install-union_top-sp.svg) no-repeat center center/cover;
+  }
+}
+
+.p-install__outer {
+  background: $bg-secondary;
+  display: flex;
+  justify-content: center;
+  padding-top: 74px;
+  padding-bottom: 69px;
+  @include mq("sm") {
+    padding-top: 45px;
+    padding-bottom: 24px;
+  }
+}
+
+.p-install__inner {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.p-install__title {
+  font-family: $ff-accent-ja_01;
+  font-size: 40px;
+  letter-spacing: 1.2px;
+  display: inline-block;
+  position: relative;
+  @include mq("sm") {
+    font-size: 24px;
+    letter-spacing: 0;
+  }
+
+  &::before {
+    content: "";
+    width: 33px;
+    height: 53px;
+    position: absolute;
+    background: url(/img/icon-title-deco_left@2x.png) no-repeat center center / cover;
+    left: -49px;
+    top: 4px;
+    @include mq("sm") {
+      left: -33px;
+      top: 1px;
+      width: 24.922px;
+      height: 40px;
+    }
+  }
+  &::after {
+    content: "";
+    width: 33px;
+    height: 53px;
+    position: absolute;
+    background: url(/img/icon-title-deco_right@2x.png) no-repeat center center / cover;
+    right: -49px;
+    top: 4px;
+    @include mq("sm") {
+      width: 24.906px;
+      height: 40px;
+      right: -33px;
+      top: 1px;
+    }
+  }
+}
+
+.p-install__main {
+  margin-top: 74px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include mq("sm") {
+    margin-top: 47px;
+    width: 100%;
+  }
+}
+
+.p-install__cards {
+  display: flex;
+  gap: clamp(0.625rem, -3.609rem + 8.83vw, 2.375rem);
+  justify-content: start;
+  max-width: calc(100% - 15px * 2);
+  @include mq("sm") {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 41px;
+    margin-left: 0;
+  }
+}
+
+.p-install__card {
+  width: clamp(11.5rem, 3.788rem + 16.09vw, 14.688rem);
+
+  @include mq("sm") {
+    width: 100%;
+  }
+}
+
+.p-install__items {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "areaB"
+    "areaA"
+    "areaC"
+    "areaD";
+  position: relative;
+
+  @include mq("sm") {
+    grid-template-columns: 118px 1fr;
+    grid-template-rows: 0 1fr 54px;
+    grid-template-areas:
+      "areaA areaB"
+      "areaA areaC"
+      "areaA areaD";
+    column-gap: 24px;
+    padding-right: 8px;
+  }
+}
+
+.p-install__card:nth-of-type(2) .p-install__items {
+  padding-right: 0;
+}
+
+.p-install__label {
+  position: absolute;
+  grid-area: areaB;
+  transform: rotate(-5deg);
+  @include mq("sm") {
+    transform: rotate(0deg);
+  }
+  p {
+    text-align: center;
+    font-family: $ff-accent-ja_02;
+    font-size: clamp(1rem, -0.059rem + 2.21vw, 1.438rem);
+    line-height: normal;
+    letter-spacing: -2.07px;
+    @include mq("sm") {
+      font-size: 15px;
+      line-height: normal;
+      letter-spacing: -1.35px;
+    }
+  }
+}
+.p-install__card:nth-of-type(1) .p-install__label {
+  top: -43px;
+  left: calc(50% - 55px);
+  @include mq("sm") {
+    top: 17px;
+    left: 0;
+  }
+}
+.p-install__card:nth-of-type(2) .p-install__label {
+  top: -44px;
+  left: calc(50% - 64px);
+  @include mq("sm") {
+    top: 4.5px;
+    left: 0;
+  }
+}
+.p-install__card:nth-of-type(3) .p-install__label {
+  top: -44px;
+  left: calc(50% - 53px);
+  p {
+  }
+  @include mq("sm") {
+    top: 5px;
+    left: 0;
+  }
+}
+.p-install__card:nth-of-type(4) .p-install__label {
+  top: -50px;
+  left: -16px;
+  width: clamp(10.563rem, -3.048rem + 28.39vw, 16.188rem);
+
+  @include mq("sm") {
+    top: 5px;
+    left: -2px;
+  }
+}
+
+.p-install__img {
+  grid-area: areaA;
+  width: clamp(6.063rem, -5.582rem + 24.29vw, 10.875rem);
+  margin-inline: auto;
+  @include mq("sm") {
+    width: 118px;
+    width: 138px;
+    padding-right: 20px;
+  }
+}
+
+.p-install__heading {
+  margin-top: 25px;
+  grid-area: areaC;
+  @include mq("sm") {
+    margin-left: 0px;
+    margin-top: 22px;
+  }
+  p {
+    text-align: center;
+    font-size: clamp(1.125rem, 0.218rem + 1.89vw, 1.5rem);
+    font-weight: 700;
+    line-height: 170%; /* 40.8px */
+    letter-spacing: 0.72px;
+    @include mq("sm") {
+      font-size: 20px;
+      line-height: normal;
+      text-align: left;
+      margin-top: 0;
+      letter-spacing: 0;
+    }
+  }
+}
+
+.p-install__card:nth-of-type(1).p-install__heading {
+  @include mq("sm") {
+    height: 100%;
+    position: relative;
+  }
+}
+.p-install__card:nth-of-type(1) .p-install__heading p {
+  @include mq("sm") {
+    position: absolute;
+    bottom: 48px;
+  }
+}
+
+.p-install__card:nth-of-type(3).p-install__heading {
+  @include mq("sm") {
+    height: 100%;
+    position: relative;
+  }
+}
+.p-install__card:nth-of-type(3) .p-install__heading p {
+  @include mq("sm") {
+    position: absolute;
+    bottom: 60px;
+  }
+}
+
+.p-install__text {
+  margin-top: 8px;
+  grid-area: areaD;
+  @include mq("sm") {
+    margin-top: 0;
+  }
+
+  p {
+    text-align: center;
+    font-size: clamp(0.875rem, 0.573rem + 0.63vw, 1rem);
+    line-height: 170%; /* 27.2px */
+    letter-spacing: 0.48px;
+    @include mq("sm") {
+      font-size: 16px;
+      line-height: 150%; /* 24px */
+      letter-spacing: 0;
+      text-align: left;
+    }
+  }
+}
+
+.p-install__deco--bottom {
+  height: 2.29166vw;
+  width: 100%;
+  background: url(/img/install-union_bottom@2x.png) no-repeat center center/cover;
+  @include mq("sm") {
+    background: url(/img/install-union_bottom--sp@2x.png) no-repeat center center/cover;
+    height: 16px;
+  }
+}

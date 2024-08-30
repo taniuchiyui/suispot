@@ -1,0 +1,131 @@
+@use "../global" as *;
+@use "sass:map";
+
+.p-links {
+  padding-top: 80px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @include mq("sm") {
+    padding-top: 56px;
+    padding-bottom: 0;
+  }
+}
+
+.p-links__inner {
+  max-width: 980px;
+  width: clamp(49.813rem, 18.814rem + 64.66vw, 61.25rem);
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 95px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @include mq("sm") {
+    width: 100%;
+  }
+}
+
+.p-links__title {
+  color: #00c2cb;
+  font-family: $ff-accent-ja_02;
+  font-size: 42px;
+  line-height: 170%; /* 71.4px */
+  letter-spacing: -6.3px;
+  @include mq("sm") {
+    font-size: 21px;
+    letter-spacing: -3.15px;
+  }
+  span {
+    color: #00c2cb;
+    font-family: $ff-accent-ja_02;
+    font-size: 42px;
+    @include mq("sm") {
+      font-size: 21px;
+    }
+  }
+}
+
+.p-links__title span:nth-of-type(1) {
+  letter-spacing: -2.1px;
+  @include mq("sm") {
+    letter-spacing: -1.05px;
+  }
+}
+.p-links__title span:nth-of-type(2) {
+  letter-spacing: 0.84px;
+  @include mq("sm") {
+    letter-spacing: 0.42px;
+  }
+}
+.p-links__title span:nth-of-type(3) {
+  letter-spacing: -1.68px;
+  @include mq("sm") {
+    letter-spacing: -0.84px;
+  }
+}
+
+.p-links__subtitle {
+  p {
+    font-size: 18px;
+    line-height: 170%; /* 30.6px */
+    letter-spacing: 0.36px;
+    @include mq("sm") {
+      font-size: 9.137px;
+      line-height: 170%; /* 15.532px */
+      letter-spacing: 0.183px;
+    }
+  }
+}
+
+.p-links__items {
+  margin-top: clamp(1.25rem, -9.083rem + 21.55vw, 5.063rem);
+  display: flex;
+  gap: 16px;
+  @include mq("sm") {
+    flex-direction: column;
+    margin-top: 40px;
+  }
+}
+
+.p-links__item {
+  width: clamp(14.688rem, 0.967rem + 28.62vw, 19.75rem);
+  transition: opacity 0.3s ease;
+  @include mq("sm") {
+    width: 100%;
+  }
+
+  // &:hover {
+  //   opacity: 0.7;
+  // }
+}
+
+.p-links__link {
+}
+
+.p-links__btn {
+  margin-top: clamp(1.25rem, -8.913rem + 21.2vw, 5rem);
+  margin-top: 27px;
+  margin-top: 94px;
+  @include mq("sm") {
+    margin-top: 53.66px;
+    margin-left: 9px;
+  }
+}
+
+.p-links__btn-link {
+  padding: 16px 24px;
+}
+
+.p-links__deco__bottom {
+  background: url(/img/faq-union-top.svg) no-repeat center center/cover;
+  height: 2.777777vw;
+  width: 100%;
+  @include mq("sm") {
+    background: url(/img/faq-union-top__sp.svg) no-repeat center center/cover;
+    height: 10px;
+  }
+}

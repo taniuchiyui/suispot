@@ -1,0 +1,116 @@
+@use "../global" as *;
+@use "sass:map";
+
+.l-footer {
+  padding-top: 68px;
+
+  @include mq("sm") {
+    padding-top: 56px;
+    padding-bottom: 0;
+  }
+}
+
+.l-footer__inner {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.l-footer__nav-wrapper {
+  margin-right: 12px;
+  @include mq("sm") {
+    margin-right: 0;
+  }
+}
+
+.l-footer__nav {
+  display: flex;
+  justify-content: space-between;
+  @include mq("sm") {
+    flex-direction: column;
+    gap: 23.5px;
+  }
+}
+.l-footer__nav li {
+  border-right: 1px solid #6c6e6f;
+  @include mq("sm") {
+    border-right: none;
+  }
+}
+.l-footer__nav li:last-child {
+  border-right: none;
+}
+.l-footer__nav li a {
+  display: block;
+  padding-left: 16px;
+  padding-right: 15px;
+  text-decoration: none;
+  background: #fff;
+  text-align: center;
+  color: var(--gray, #6c6e6f);
+  font-size: clamp(0.875rem, -0.354rem + 2.56vw, 1rem);
+  font-weight: 500;
+  line-height: normal;
+  transition: all 0.3s ease;
+  @include mq("sm") {
+    font-size: 13px;
+    line-height: normal;
+  }
+}
+
+.l-footer__logo {
+  margin-top: 51px;
+  width: 141px;
+  @include mq("sm") {
+    width: 95px;
+    margin-top: 40px;
+  }
+}
+
+.l-footer__notice {
+  margin-top: 48px;
+  max-width: 788px;
+  width: 100%;
+  padding-bottom: 20px;
+  @include mq("sm") {
+    margin-top: 40px;
+    padding-bottom: 39px;
+  }
+  p {
+    color: var(--gray, #6c6e6f);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: normal;
+    @include mq("sm") {
+      font-size: 13px;
+    }
+  }
+}
+
+.l-footer__copyright {
+  background: url(/img/footer-union@2x.png) no-repeat bottom center/cover;
+  height: 7.013888vw;
+  width: 100%;
+  position: relative;
+  @include mq("sm") {
+    height: 40px;
+    background: url(/img/footer-union-sp.svg) no-repeat bottom center/cover;
+  }
+  p {
+    color: var(--gray, #6c6e6f);
+    text-align: center;
+    font-size: 14px;
+    line-height: normal;
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @include mq("sm") {
+      font-size: 7px;
+      top: 28.5px;
+      margin-left: -1px;
+    }
+  }
+}

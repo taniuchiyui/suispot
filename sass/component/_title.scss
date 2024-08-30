@@ -1,0 +1,35 @@
+@use "../global" as *;
+@use "sass:map";
+.c-title-deco {
+  position: relative;
+  &::before {
+    content: "";
+    width: 33px;
+    height: 53px;
+    position: absolute;
+    background: url(/img/icon-title-deco_left@2x.png) no-repeat center center / cover;
+    left: 227px;
+    top: 2px;
+    @include mq("sm") {
+      left: 3px;
+      top: 27px;
+      width: 24.922px;
+      height: 40px;
+    }
+  }
+  &::after {
+    content: "";
+    width: 33px;
+    height: 53px;
+    position: absolute;
+    background: url(/img/icon-title-deco_right@2x.png) no-repeat center center / cover;
+    right: 229px;
+    top: 2px;
+    @include mq("sm") {
+      width: 24.906px;
+      height: 40px;
+      right: 3px;
+      top: 27px;
+    }
+  }
+}

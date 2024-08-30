@@ -1,0 +1,32 @@
+//フォーカスが当たった時の色
+
+.u-opacity--07,
+.u-opacity--05{
+  transition: opacity 0.3s ease;
+}
+
+
+.u-opacity--07:focus-visible {
+  opacity: 0.7;
+
+}
+
+//ホバー時の色
+@media (any-hover: hover) {
+  .u-opacity--07:hover {
+    opacity: 0.7;
+  }
+}
+
+//フォーカスが当たった時の色
+.u-opacity--05:focus-visible {
+      opacity: 0.5;
+
+}
+
+//ホバー時の色
+@media (any-hover: hover) {
+  .u-opacity--05:hover {
+    opacity: 0.5;
+  }
+}

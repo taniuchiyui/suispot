@@ -1,0 +1,37 @@
+@use "../global" as *;
+@use "sass:map";
+
+.p-cta03 {
+  background: url(/img/cta_bg-image@2x.png) no-repeat center center/cover;
+}
+
+.p-cta03__img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 43px;
+  padding-left: 20px;
+  padding-right: 20px;
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    max-width: 856px;
+    &:hover {
+      opacity: 0.7;
+      transition: all 0.3s ease;
+    }
+  }
+
+  @include mq("sm") {
+    padding-top: 24px;
+    padding-left: 16px;
+    padding-right: 15px;
+    padding-bottom: 24px;
+  }
+  img {
+    width: 100%;
+  }
+}

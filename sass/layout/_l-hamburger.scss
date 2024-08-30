@@ -1,0 +1,309 @@
+@use "../global" as *;
+@use "sass:map";
+
+//=====================================
+//ハンバーガーメニュー(tab,sp)
+//=====================================
+.l-hamburger {
+  @include mq("xl") {
+    display: none;
+  }
+}
+
+.l-header__inner--hamburger {
+  display: flex;
+  align-items: center;
+  padding-right: 15px;
+  gap: 15px;
+}
+
+.l-header__entrybtn {
+  z-index: 9999; /*ボタンを最前面に*/
+  // position: fixed;
+  // right: 57px;
+  // top: 10px;
+  width: rm(128);
+  padding-left: 19px;
+  padding-right: 29px;
+  padding-top: 8px;
+  padding-bottom: 9px;
+  font-size: rm(16);
+  font-weight: 700;
+  line-height: normal;
+  position: relative;
+  letter-spacing: -0.001rem;
+}
+
+.l-header_btn--arrow {
+  &::before,
+  &::after {
+    width: rm(9);
+    height: rm(15);
+    right: -17px;
+  }
+}
+//ハンバーガーメニューopenボタン
+.l-header__trigger {
+  // position: fixed;
+  z-index: 9999; /*ボタンを最前面に*/
+  // right: 15px;
+  // top: 21.5px;
+  cursor: pointer;
+  width: rm(27);
+  height: rm(16.5);
+  position: relative;
+}
+
+/*×に変化*/
+.l-header__trigger span {
+  display: inline-block;
+  transition: all 0.4s;
+  position: absolute;
+  border-radius: 4px;
+  background-color: $color-primary;
+  width: 27px;
+  height: 2px;
+  border: none;
+  left: 0;
+}
+
+.l-header__trigger span:nth-of-type(1) {
+  top: 0;
+}
+
+.l-header__trigger span:nth-of-type(2) {
+  top: rm(7.5);
+}
+
+.l-header__trigger span:nth-of-type(3) {
+  top: rm(15);
+}
+
+.l-header__trigger.active span:nth-of-type(1) {
+  top: 2px;
+  left: 0.2px;
+  transform: translateY(6px) rotate(-30deg);
+  height: 2.25px;
+  background-color: $color-primary;
+}
+
+.l-header__trigger.active span:nth-of-type(2) {
+  opacity: 0;
+}
+
+.l-header__trigger.active span:nth-of-type(3) {
+  top: 14px;
+  left: 0.2px;
+  transform: translateY(-6px) rotate(30deg);
+  height: 2.25px;
+  background-color: $color-primary;
+}
+
+/*========= ナビゲーションのためのCSS ===============*/
+
+#g-nav-hamburger {
+  /*position:fixed;にし、z-indexの数値を小さくして最背面へ*/
+  position: fixed;
+  z-index: map.get($layer, "drawer");
+  /*ナビの位置と形状*/
+  top: 60px;
+  right: -120%;
+  width: 100%;
+  height: calc(100vh - 60px); /*ナビの高さ*/
+  /*動き*/
+  transition: all 0.6s;
+  // pointer-events: none;
+  background: var(--gradation, linear-gradient(0deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.8) 100%), linear-gradient(180deg, #007adf 0%, #00ecbc 100%));
+  visibility: hidden;
+}
+
+/*アクティブクラスがついたら位置を0に*/
+#g-nav-hamburger.panelactive {
+  right: 0;
+  z-index: map.get($layer, "drawer");
+  visibility: visible;
+}
+
+/*ナビゲーション*/
+#g-nav-hamburger ul {
+  display: none;
+  /*ナビゲーション天地中央揃え*/
+}
+
+#g-nav-hamburger.panelactive ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: calc(100% - 184.26px);
+  justify-content: center;
+  @include mq("sm") {
+    padding-top: 37px;
+    justify-content: start;
+  }
+}
+.g-nav-hamburger__inner {
+  position: relative;
+  height: inherit;
+}
+
+/*リストのレイアウト設定*/
+
+#g-nav-hamburger li {
+  list-style: none;
+  width: 360px;
+  position: relative;
+
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background: rgba(($bg-primary-rgb), 0.3);
+  }
+
+  &::before {
+    content: "";
+    width: 100%;
+    height: 1px;
+    background: $color-tertiary;
+    position: absolute;
+    bottom: 0;
+  }
+}
+
+#g-nav-hamburger li a {
+  color: $color-secondary;
+  font-size: 20px;
+  justify-content: left;
+  align-items: center;
+  padding-top: 28px;
+  padding-bottom: 7px;
+  padding-left: 49px;
+  padding-right: 49px;
+  display: block;
+  position: relative;
+  &::after {
+    content: "";
+    width: 15px;
+    height: 15px;
+    background: url(/img/hamberger-icon-arrow-up.svg) no-repeat center center/cover;
+    position: absolute;
+    right: 49px;
+    top: 37px;
+  }
+}
+
+.c-reserve-btn {
+  position: fixed;
+  top: 176px;
+  right: 0;
+  z-index: map.get($layer, "floating");
+}
+
+.c-reserve-btn__link {
+  &:hover {
+    &::before {
+      background: url(../img/icon-reserve-button--hov@2x.png) no-repeat center center/cover;
+    }
+  }
+
+  &::before {
+    content: "";
+    width: 92px;
+    height: 120px;
+    background: url(../img/icon-reserve-button@2x.png) no-repeat center center/cover;
+    transition: background-image 0.3s ease;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+
+.l-hamburger__contact {
+  position: fixed; /* fixedにするとSafariでタブバーの上に配置される */
+  transition: all 0.6s;
+  // pointer-events: none;
+  right: -120%;
+
+  bottom: 0;
+  width: 100%;
+  display: inline-flex;
+  // padding: 42px 23px 10px;
+  // padding: 39px 23px 48px;
+  // padding: 40px 23px 40px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  // gap: 24px;
+  background: $bg-primary;
+  height: 28.804347vh;
+}
+
+/*アクティブクラスがついたら位置を0に*/
+#g-nav-hamburger.panelactive {
+  .l-hamburger__contact {
+    right: 0;
+    // pointer-events: auto;
+  }
+}
+
+.l-hamburger__telarea {
+  a {
+    display: block;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: normal;
+    position: relative;
+    padding-left: 24px;
+    &::before {
+      content: "";
+      width: 16.001px;
+      height: 16.001px;
+      position: absolute;
+      background: url(/img/icon_tel.svg) no-repeat center center/cover;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 2px;
+    }
+  }
+  p {
+    margin-top: -3px;
+    padding-left: 6px;
+    font-size: 12px;
+  }
+}
+
+.l-hamburger__btnwrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 23px;
+}
+
+.l-hamburger__btn {
+  display: block;
+  text-align: center;
+  flex-shrink: 0;
+  width: 160px;
+  padding-top: 17.5px;
+  padding-bottom: 19.5px;
+  background: $color-accent_01;
+  border-radius: 40px;
+  box-shadow: 0px 0px 4px 0px rgba(83, 46, 37, 0.25);
+  transition: all 0.3s ease;
+  color: $color-tertiary;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 120%; /* 19.2px */
+  letter-spacing: 3.2px;
+  transition: all 0.3s ease;
+}
+
+#js-focus-trap {
+  visibility: hidden;
+}
+
+#g-nav-hamburger.panelactive {
+  #js-focus-trap {
+    visibility: visible;
+  }
+}

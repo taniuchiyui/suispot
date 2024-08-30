@@ -1,0 +1,137 @@
+@use "../global" as *;
+@use "sass:map";
+
+.l-header {
+  background: $bg-primary;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  position: fixed; /* ウィンドウを基準に画面に固定 */
+  top: 0; /* 上下の固定位置を上から0pxにする */
+  left: 0; /* 左右の固定位置を左から0pxにする */
+  width: 100%; /* 幅いっぱいを指定 */
+  z-index: map.get($layer, "header");
+  padding: 0 15px;
+  @include mq("xl") {
+    height: 104px;
+    padding: 8px 15px 8px 36px;
+  }
+}
+
+.l-header__inner {
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  @include mq("xl") {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-inline: auto;
+  }
+}
+
+//    ロゴ
+.l-header__logo {
+  display: inline-block;
+  width: 151px;
+  padding-left: 9px;
+  @include mq("xl") {
+    width: 198px;
+  }
+  @include mq("sm") {
+    padding-left: 0;
+  }
+}
+//=====================================
+//ナビゲーション(PC)
+//=====================================
+//headerの幅が1200px以上でナビゲーション表示
+.l-header__nav {
+  display: none;
+  @include mq("xl") {
+    display: flex;
+    gap: 51px;
+    margin-left: 45px;
+  }
+}
+
+//PC表示時_ナビゲーション
+.l-header__list {
+  display: flex;
+  gap: 31.5px;
+}
+//PC表示時_ナビゲーション各アイテム
+.l-header__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  a {
+    padding: 10px 0;
+    color: $color-secondary;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: normal;
+    opacity: inherit;
+  }
+}
+
+.l-header__item:not(:first-child) a {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 31px;
+    background: $color-secondary;
+    left: -16px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+//PC表示時_住所・電話番号
+.l-header__contact {
+}
+
+.l-header__inner--contact {
+  a {
+      display: block;
+      font-size: 32px;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: normal;
+      position: relative;
+      padding-left: 24px;
+      &::before {
+        content: "";
+        width: 16.001px;
+        height: 16.001px;
+        position: absolute;
+        background: url(/img/icon_tel.svg) no-repeat center center/cover;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 2px;
+    }
+  }
+  p {
+    margin-top: -3px;
+    padding-left: 6px;
+    font-size: 12px;
+  }
+}
+
+.l-header__btn-wrap {
+  margin-left: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.l-header__btn {
+  width: 160px;
+  padding-top: rm(14.5);
+  padding-bottom: rm(14.5);
+}

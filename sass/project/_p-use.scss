@@ -1,0 +1,247 @@
+@use "../global" as *;
+@use "sass:map";
+
+.p-use {
+  padding-top: 80px;
+  padding-bottom: 77px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--Blue, #f4fbfd);
+
+  @include mq("sm") {
+    padding: 56px 15px;
+  }
+}
+
+.p-use__inner {
+  margin-inline: auto;
+  max-width: 1280px;
+  // max-width: calc(1280px + 15px *2);
+  width: calc(100% - 15px * 2);
+  padding: 40px 75px 102px 75px;
+  border-radius: 24px;
+  background: var(--White, #fff);
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @include mq("sm") {
+    width: 100%;
+    padding: 0;
+    padding-top: 47px;
+    padding-bottom: 88px;
+  }
+}
+
+.p-use__title {
+  text-align: center;
+  position: relative;
+  display: inline-block;
+    font-family: $ff-accent-ja_01;
+    font-size: 40px;
+    line-height: normal;
+    letter-spacing: 1.2px;
+    @include mq("sm") {
+      font-size: 24px;
+      letter-spacing: 0;
+    }
+  &::before {
+    content: "";
+    width: 33px;
+    height: 53px;
+    position: absolute;
+    background: url(/img/icon-title-deco_left@2x.png) no-repeat center center / cover;
+    left: -49px;
+    top: 4px;
+    @include mq("sm") {
+      left: -33px;
+      top: -1px;
+      width: 24.922px;
+      height: 40px;
+    }
+  }
+  &::after {
+    content: "";
+    width: 33px;
+    height: 53px;
+    position: absolute;
+    background: url(/img/icon-title-deco_right@2x.png) no-repeat center center / cover;
+    right: -49px;
+    top: 4px;
+    @include mq("sm") {
+      width: 24.906px;
+      height: 40px;
+      right: -33px;
+      top: -1px;
+    }
+  }
+  
+}
+
+.p-use__subtitle {
+  margin-top: 40px;
+  @include mq("sm") {
+    margin-top: 27px;
+    padding-left: 15px;
+    padding-right: 15px;
+    max-width: 500px;
+  }
+  p {
+    text-align: center;
+    font-size: 18px;
+    line-height: 170%; /* 30.6px */
+    letter-spacing: 0.54px;
+    @include mq("sm") {
+      font-size: 14px;
+      line-height: 1.65;
+      letter-spacing: 1px;
+      text-align: left;
+    }
+  }
+}
+
+.p-use__main {
+  margin-top: 48px;
+  max-width: 1130px;
+  width: 100%;
+  padding-left: 69px;
+  padding-right: 69px;
+  position: relative;
+  z-index: map.get($layer, "default");
+  @include mq("sm") {
+    width: calc(100% - 42px);
+    padding: 0;
+    margin-top: 39px;
+    max-width: 500px;
+  }
+}
+
+.p-use__swiper {
+  max-width: 992px;
+  width: 100%;
+  margin-inline: auto;
+  overflow-x: hidden;
+  z-index: map.get($layer, "default");
+  @include mq("sm") {
+    width: 60.51282vw;
+  }
+}
+
+.swiper-wrapper {
+}
+
+.swiper-slide {
+}
+
+.p-use__swiper-slide {
+  margin-inline: auto;
+  width: 236px;
+  @include mq("lg") {
+    width: 220px;
+  }
+  @include mq("md") {
+    width: 39.169909vw;
+  }
+  @include mq("sm") {
+  }
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+// ============================
+//     pagination について
+// ============================
+
+//色と大きさ指定
+.swiper-pagination-bullet {
+  opacity: 1;
+  background: #b6b7b7;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%; //円にする
+  @include mq("sm") {
+    width: 12px;
+    height: 12px;
+  }
+}
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background: $color-secondary;
+}
+//paginationの余白指定
+.swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
+  margin: 0 4px;
+  @include mq("sm") {
+    margin: 0 8px;
+  }
+}
+//paginationの位置
+
+.swiper-container-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+  position: absolute;
+  bottom: -58px;
+  left: 50%;
+  transform: translateX(-50%);
+  @include mq("sm") {
+    bottom: -55px;
+  }
+}
+
+// ==============================
+//     navigation について
+// ==============================
+
+.swiper-button-prev {
+  //位置はここで指定
+  width: 30px;
+  height: 30px;
+  left: 0;
+  top: calc(50% + 21px);
+  transform: translateY(-50%);
+  @include mq("sm") {
+    left: -12px;
+    top: calc(50% + 20px);
+  }
+  &::after {
+    content: ""; //デフォルトの削除
+    width: 29px;
+    height: 29px;
+    background: url(/img/icon-prev.svg) no-repeat center center/cover;
+    transition: all 0.3s ease;
+  }
+}
+
+.swiper-button-next {
+  //位置はここで指定
+  // top: 50%;
+  // transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  right: 0;
+  top: calc(50% + 21px);
+  transform: translateY(-50%);
+  @include mq("sm") {
+    right: -12px;
+    top: calc(50% + 20px);
+  }
+  &::after {
+    content: ""; //デフォルトの削除
+    width: 29px;
+    height: 29px;
+    background: url(/img/icon-next.svg) no-repeat center center/cover;
+    transition: all 0.3s ease;
+  }
+}
+
+.swiper-button-prev:hover::after {
+  opacity: 0.5;
+}
+
+.swiper-button-next:hover::after {
+  opacity: 0.5;
+}
